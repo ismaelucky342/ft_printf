@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 09:50:01 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/26 09:50:09 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/26 10:12:44 by ismherna          #+#    #+#             */
+/*   Updated: 2024/02/26 10:48:46 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_print_digit(long n, int base)
+{
+	int		aux;
+	char	*simbolos;
 
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-int		ft_print_digit(long n, int base);
-int		ft_print_digitx(long n, int base);
-int		ft_print_u(unsigned int n);
-int		ft_puthex(unsigned long long nu);
-int		ft_printf(const char *format, ...);
-
-#endif
+	simbolos = "012356789abcdef";
+	aux = 0;
+	if (n < 0)
+	{
+		write (1, "-", 1);
+		return (ft_print_digit (-n, base) + 1);
+	}
+	else if (n < base)
+	{
+		ft_putchar_fd (simbolos[n], 1);
+		aux += 1;
+		return (aux);
+	}
+	else
+	{
+		aux = ft_print_digit (n / base, base);
+		return (aux + ft_print_digit(n % base, base));
+	}
+}

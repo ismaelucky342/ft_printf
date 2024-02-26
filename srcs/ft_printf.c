@@ -6,7 +6,7 @@
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:12:44 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/26 12:20:46 by ismherna         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:49:17 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_print_formats(char espec, va_list ap)
 	else if (espec == 'u')
 		aux += ft_print_digit((long)(va_arg(ap, unsigned int)), 10);
 	else if (espec == 'p')
-		aux += ft_putpoi(va_arg(ap, unsigned long long));
+		aux += ft_puthex(va_arg(ap, unsigned long long));
 	else
 		aux += write(1, &espec, 1);
 	return (aux);
@@ -51,7 +51,7 @@ int	ft_printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
-			aux += ft_print_format(*(++format), ap);
+			aux += ft_print_formats(*(++format), ap);
 		else
 			aux += ft_print_char(*format);
 		++format;

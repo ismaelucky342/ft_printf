@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 09:50:01 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/26 09:50:09 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/26 09:50:51 by ismherna          #+#    #+#             */
+/*   Updated: 2024/02/26 12:52:53 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-int		ft_print_digit(long n, int base);
-int		ft_print_digitx(long n, int base);
-int		ft_print_u(unsigned int n);
-int		ft_puthex(unsigned long long nu);
-int		ft_printf(const char *format, ...);
-
-#endif
+int	ft_printf_char(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
