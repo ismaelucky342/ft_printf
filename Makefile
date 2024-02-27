@@ -10,49 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libftprintf.a
+NAME	=	libftprintf.a
+INCLUDE	= 	pintf.h
 
-LIBFT		= ./libft/libft.a
-LIBFT_DIR	= ./libft
+SRC		=	ft_printf.c			\
+			ft_basics.c			\
+			ft_hexadecimals.c	\
+			ft_pointers.c		\
 
-SRC			= ./srcs
+OBJ		=	${SRC:.c=.o}
 
-PRINTF_SRCS	= ft_printf.c \
-				ft_print_char.c \
-				ft_print_str.c \
-				ft_print_digit.c \
-				ft_print_digitX.c \
-				ft_hexformat.c
+CC		=	gcc
+RM		=	rm -f
+AR		=	ar rc
+RN		=	ranlib
 
-OBJS		= $(PRINTF_SRCS:.c=.o)
+CFLAGS	=	-Wall -Wextra -Werror
 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-AR			= ar rcs
-RM			= rm -f
-CP			= cp
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-all:		$(NAME)
+all: $(NAME)
 
-$(NAME):	$(LIBFT) $(OBJS)
-				$(CP) $(LIBFT) $(NAME)
-				$(AR) $(NAME) $(OBJS)
-
-$(LIBFT):	$(LIBFT_DIR)
-				@$(MAKE) -C $(LIBFT_DIR)
-
-
-%.o: 		$(SRC)/%.c 
-				@$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	${OBJ} 
+	@echo "Compiling .."
+	${AR} ${NAME} ${OBJ}
+	${RN} ${NAME}
+	@echo "Done !"
 
 clean:
-				@$(MAKE) clean -C $(LIBFT_DIR)
-				@$(RM) $(OBJS)
+	@echo "Remove .o  ..."
+	${RM} ${OBJ}
+	@echo "Done !"
 
-fclean:		clean
-				@$(MAKE) fclean -C $(LIBFT_DIR)
-				@$(RM) $(NAME)
+fclean: clean
+	@echo "Remove lib ..."
+	${RM} $(NAME)
+	@echo "Done !"
 
-re:				fclean all
-
-.PHONY:		all clean fclean re
+re: fclean all  
