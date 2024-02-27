@@ -6,12 +6,12 @@
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:50:51 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/26 12:52:53 by ismherna         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:09:55 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_printf_char(char c)
+int	ft_print_char(int c)
 {
 	write(1, &c, 1);
 	return (1);

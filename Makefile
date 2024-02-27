@@ -6,17 +6,20 @@
 #    By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 12:32:36 by ismherna          #+#    #+#              #
-#    Updated: 2024/02/26 12:37:11 by ismherna         ###   ########.fr        #
+#    Updated: 2024/02/27 10:55:04 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
-INCLUDE	= 	pintf.h
+INCLUDE	= 	ft_printf.h
 
 SRC		=	ft_printf.c			\
-			ft_basics.c			\
-			ft_hexadecimals.c	\
-			ft_pointers.c		\
+			ft_char.c			\
+			ft_number.c			\
+			ft_unsigned.c 		\
+			ft_puntero.c   		\
+			ft_hexadecimales.c	\
+			ft_str.c 			\
 
 OBJ		=	${SRC:.c=.o}
 
@@ -32,7 +35,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):	${OBJ} 
+$(NAME):	${OBJ}
 	@echo "Compiling .."
 	${AR} ${NAME} ${OBJ}
 	${RN} ${NAME}
@@ -48,4 +51,4 @@ fclean: clean
 	${RM} $(NAME)
 	@echo "Done !"
 
-re: fclean all  
+re: fclean all

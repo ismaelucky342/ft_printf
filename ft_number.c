@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_digit.c                                   :+:      :+:    :+:   */
+/*   ft_print_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 10:12:44 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/26 10:48:46 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/27 08:56:50 by ismherna          #+#    #+#             */
+/*   Updated: 2024/02/27 10:48:55 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_print_digit(long n, int base)
+int	ft_print_number(int n)
 {
-	int		aux;
-	char	*simbolos;
+	int		size;
 
-	simbolos = "012356789abcdef";
-	aux = 0;
+	size = 0;
+	if (n == 0)
+		size += ft_print_char('0');
+	if (n == -2147483648)
+	{
+		size += ft_print_str("-2147483648");
+		return (size);
+	}
 	if (n < 0)
 	{
-		write (1, "-", 1);
-		return (ft_print_digit (-n, base) + 1);
+		size += ft_print_char('-');
+		n = -n;
 	}
-	else if (n < base)
+	if (n > 0)
 	{
-		ft_putchar_fd (simbolos[n], 1);
-		aux += 1;
-		return (aux);
+		size += ft_print_unsigned((unsigned int)n);
 	}
-	else
-	{
-		aux = ft_print_digit (n / base, base);
-		return (aux + ft_print_digit(n % base, base));
-	}
+	return (size);
 }
