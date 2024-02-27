@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 10:57:52 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/12 11:51:58 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/27 09:35:46 by ismherna          #+#    #+#             */
+/*   Updated: 2024/02/27 10:48:25 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-#include "libft.h"
-
-int	ft_isprint(int c)
+int	ft_print_str(char *str)
 {
-	if (c >= 32 && c <= 126)
+	int	size;
+
+	size = 0;
+	if (str == 0)
 	{
-		return (1);
+		return (ft_print_str("(null)"));
 	}
-	return (0);
+	while (str[size])
+	{
+		size += ft_print_char(str[size]);
+	}
+	return (size);
 }

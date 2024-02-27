@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned.c                                      :+:      :+:    :+:   */
+/*   ft_hexadecimales.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,24 +9,51 @@
 /*   Updated: 2024/02/27 10:48:25 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-int	ft_print_unsigned(unsigned int n)
+static int	ft_length_hex(unsigned int num);
+
+static void	ft_search_hex(unsigned int num, const char word);
+
+int	ft_print_hex(unsigned int num, const char word)
 {
-	int	size;
+	if (num == 0)
+		return (ft_print_char('0'));
+	else
+		ft_search_hex(num, word);
+	return (ft_length_hex(num));
+}
 
-	size = 0;
-	if (n == 0)
-		size += ft_print_char('0');
+static void	ft_search_hexadecimal(unsigned int num, const char word)
+{
+	if (num >= 16)
+	{
+		ft_search_hex(num / 16, word);
+		ft_search_hex(num % 16, word);
+	}
 	else
 	{
-		if (n / 10 != 0)
-			ft_print_unsigned(n / 10);
-		ft_print_char((n % 10) + '0');
-		while (n > 0)
+		if (num < 10)
+			ft_print_char(num + '0');
+		else
 		{
-			n /= 10;
-			size++;
+			if (word == 'x')
+				ft_print_char(num - 10 + 'a');
+			if (word == 'X')
+				ft_print_char(num - 10 + 'A');
 		}
 	}
-	return (size);
+}
+
+static int	ft_length_hex(unsigned int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 16;
+	}
+	return (len);
 }

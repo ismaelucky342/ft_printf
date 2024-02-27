@@ -5,21 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/26 12:32:36 by ismherna          #+#    #+#              #
-#    Updated: 2024/02/27 10:55:04 by ismherna         ###   ########.fr        #
+#    Created: 2024/02/22 15:48:04 by ismherna          #+#    #+#              #
+#    Updated: 2024/02/23 19:26:13 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
-INCLUDE	= 	ft_printf.h
+INCLUDE	= 	pintf.h
 
 SRC		=	ft_printf.c			\
-			ft_char.c			\
+			ft_string.c			\
+			ft_unsigned.c		\
 			ft_number.c			\
-			ft_unsigned.c 		\
-			ft_puntero.c   		\
-			ft_hexadecimales.c	\
-			ft_str.c 			\
+			ft_hexadecimals.c	\
+			ft_char.c			\
+			ft_pointers.c		\
 
 OBJ		=	${SRC:.c=.o}
 
@@ -35,7 +35,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):	${OBJ}
+$(NAME):	${OBJ} 
 	@echo "Compiling .."
 	${AR} ${NAME} ${OBJ}
 	${RN} ${NAME}
@@ -51,4 +51,4 @@ fclean: clean
 	${RM} $(NAME)
 	@echo "Done !"
 
-re: fclean all
+re: fclean all  

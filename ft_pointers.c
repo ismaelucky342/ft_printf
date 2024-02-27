@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexadecimales.c                                 :+:      :+:    :+:   */
+/*   ft_pointers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,51 +9,53 @@
 /*   Updated: 2024/02/27 10:48:25 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
-static	void	ft_buscar_hex(unsigned int num, const char word);
-static	int	ft_longitud_hex(unsigned int num);
+static int	ft_length_ptr(unsigned long long ptr);
 
-int	ft_print_hex(unsigned int num, const char word)
+static void	ft_search_ptr(unsigned long long ptr);
+
+int	ft_print_pointer(unsigned long long ptr)
 {
-	if (num == 0)
-		return (ft_print_char('0'));
+	int	size;
+
+	size = 0;
+	size += ft_print_str("0x");
+	if (ptr == 0)
+		size += ft_print_char('0');
 	else
-		ft_buscar_hex (num, word);
-	return (ft_longitud_hex(num));
+	{
+		ft_search_ptr(ptr);
+		size += ft_length_ptr(ptr);
+	}
+	return (size);
 }
 
-static	void	ft_buscar_hex(unsigned int num, const char word)
+static int	ft_length_ptr(unsigned long long ptr)
 {
-	if (num >= 16)
+	int	len;
+
+	len = 0;
+	while (ptr > 0)
 	{
-		ft_buscar_hex(num / 16, word);
-		ft_buscar_hex(num % 16, word);
+		len++;
+		ptr /= 16;
+	}
+	return (len);
+}
+
+static void	ft_search_ptr(unsigned long long ptr)
+{
+	if (ptr >= 16)
+	{
+		ft_search_ptr(ptr / 16);
+		ft_search_ptr(ptr % 16);
 	}
 	else
 	{
-		if (num < 10)
-			ft_print_char (num + '0');
+		if (ptr < 10)
+			ft_print_character(ptr + '0');
 		else
-		{
-			if (word == 'x')
-				ft_print_char(num - 10 + 'a');
-			if (word == 'X')
-				ft_print_char(num - 10 + 'A');
-		}
+			ft_print_character(ptr - 10 + 'a');
 	}
-}
-
-static	int	ft_longitud_hex(unsigned int num)
-{
-	int		longitud;
-
-	longitud = 0;
-	while (num != 0)
-	{
-		longitud ++;
-		num /= 16;
-	}
-	return (longitud);
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_number.c                                  :+:      :+:    :+:   */
+/*   ft_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 08:56:50 by ismherna          #+#    #+#             */
-/*   Updated: 2024/02/27 10:48:55 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/27 09:35:46 by ismherna          #+#    #+#             */
+/*   Updated: 2024/02/27 10:48:25 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
 int	ft_print_number(int n)
 {
-	int		size;
+	int	size;
 
 	size = 0;
 	if (n == 0)
@@ -29,8 +28,6 @@ int	ft_print_number(int n)
 		n = -n;
 	}
 	if (n > 0)
-	{
 		size += ft_print_unsigned((unsigned int)n);
-	}
 	return (size);
 }
