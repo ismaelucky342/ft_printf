@@ -23,7 +23,7 @@ int	ft_print_hex(unsigned int num, const char word)
 	return (ft_length_hex(num));
 }
 
-static void	ft_search_hexadecimal(unsigned int num, const char word)
+static void	ft_search_hex(unsigned int num, const char word)
 {
 	if (num >= 16)
 	{

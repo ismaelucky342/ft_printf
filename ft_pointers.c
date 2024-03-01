@@ -54,8 +54,8 @@ static void	ft_search_ptr(unsigned long long ptr)
 	else
 	{
 		if (ptr < 10)
-			ft_print_character(ptr + '0');
+			ft_print_char(ptr + '0');
 		else
-			ft_print_character(ptr - 10 + 'a');
+			ft_print_char(ptr - 10 + 'a');
 	}
 }
