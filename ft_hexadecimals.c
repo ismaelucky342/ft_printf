@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	ft_length_hex(unsigned int num);
+static int	ft_length_hex(unsigned int num); 
 static void	ft_search_hex(unsigned int num, const char word);
 
 int	ft_print_hex(unsigned int num, const char word)

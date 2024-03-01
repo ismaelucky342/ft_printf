@@ -9,6 +9,7 @@
 /*   Updated: 2024/02/27 10:48:25 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
 int	ft_print_char(int character)
 {

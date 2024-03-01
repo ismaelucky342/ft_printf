@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_print_str(char *str)
+int	ft_print_str(char *str) // mostrar string 
 {
 	int	size;
 
 	size = 0;
-	if (str == 0)
+	if (str == 0) //string nulo 
 	{
 		return (ft_print_str("(null)"));
 	}
 	while (str[size])
 	{
-		size += ft_print_char(str[size]);
+		size += ft_print_char(str[size]);// la recorre y muestra caracter por caracter 
 	}
 	return (size);
 }
