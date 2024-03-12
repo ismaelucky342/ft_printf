@@ -6,7 +6,7 @@
 #    By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 15:48:04 by ismherna          #+#    #+#              #
-#    Updated: 2024/03/10 18:05:25 by ismherna         ###   ########.fr        #
+#    Updated: 2024/03/12 12:40:17 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ WHITE       =   \033[0;97m
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all: $(NAME)
+	norminette 
 
 
 $(NAME):	${OBJ} 
