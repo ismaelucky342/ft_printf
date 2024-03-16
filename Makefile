@@ -30,7 +30,6 @@ RN		=	ranlib
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-# Colors
 DEF_COLOR   =   \033[0;39m
 GRAY        =   \033[0;90m
 RED         =   \033[0;91m
@@ -47,28 +46,15 @@ WHITE       =   \033[0;97m
 all: $(NAME)
 	norminette 
 
-
-# Colors
-DEF_COLOR   =   \033[0;39m
-GRAY        =   \033[0;90m
-RED         =   \033[0;91m
-GREEN       =   \033[0;92m
-YELLOW      =   \033[0;93m
-BLUE        =   \033[0;94m
-MAGENTA     =   \033[0;95m
-CYAN        =   \033[0;96m
-WHITE       =   \033[0;97m
-
 $(NAME):	${OBJ} 
 	@echo "Compiling .."
 	${AR} ${NAME} ${OBJ}
 	${RN} ${NAME}
-<<<<<<< Updated upstream
+
 	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 	@echo "$(BLUE)Compiled Objects:  $(words $(NAME)  ${OBJ})$(DEF_COLOR)"
-=======
 	@echo "$(GREEN) Done ! $(DEF_COLOR)"
->>>>>>> Stashed changes
+
 
 clean:
 	@echo "$(RED)Removing .o  ...$(DEF_COLOR)"
