@@ -57,3 +57,22 @@ static int	ft_length_hex(unsigned int num)
 	}
 	return (len);
 }
+
+#include <unistd.h>
+#include "libft.h" // Asegúrate de tener los archivos de cabecera "ft_printf.h" y "libft.h" en tu proyecto.
+
+// Prototipos de funciones
+int ft_hex_len(unsigned int num);
+void ft_put_hex(unsigned int num, const char format);
+int ft_print_hex(unsigned int num, const char format);
+
+int main() {
+    unsigned int num = 305441741; // Número para imprimir en hexadecimal
+    char format = 'x'; // Formato 'x' para minúsculas, 'X' para mayúsculas
+
+    ft_printf("Número en hexadecimal: 0x");
+    ft_print_hex(num, format);
+    ft_printf("\n");
+
+    return 0;
+}
