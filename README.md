@@ -1,7 +1,7 @@
 # ft_printf
 "Because putnbr and putstr aren’t enough"
 
-![image](https://github.com/ismaelucky342/ft_printf/assets/153450550/e680a4b5-a450-418f-8545-06b5237000fa)
+![image](https://github.com/ismaelucky342/ft_printf/assets/153450550/75677bc9-8af1-4dbf-a2b0-707f0f590393)
 
 This project is my own implementation of the system's printf function, which handles the cspdiuxX% conversions. 
 - 42 Madrid Coding School.
