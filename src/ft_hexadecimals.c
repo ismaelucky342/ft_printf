@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexadecimales.c                                 :+:      :+:    :+:   */
+/*   ft_hexadecimals.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ismherna <ismherna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:46 by ismherna          #+#    #+#             */
-/*   Updated: 2024/03/01 00:29:07 by ismherna         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:56:28 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+
+#include "../includes/ft_printf.h"
 
 static int	ft_length_hex(unsigned int num);
 static void	ft_search_hex(unsigned int num, const char word);
@@ -56,23 +57,4 @@ static int	ft_length_hex(unsigned int num)
 		num = num / 16;
 	}
 	return (len);
-}
-
-#include <unistd.h>
-#include "libft.h" // Asegúrate de tener los archivos de cabecera "ft_printf.h" y "libft.h" en tu proyecto.
-
-// Prototipos de funciones
-int ft_hex_len(unsigned int num);
-void ft_put_hex(unsigned int num, const char format);
-int ft_print_hex(unsigned int num, const char format);
-
-int main() {
-    unsigned int num = 305441741; // Número para imprimir en hexadecimal
-    char format = 'x'; // Formato 'x' para minúsculas, 'X' para mayúsculas
-
-    ft_printf("Número en hexadecimal: 0x");
-    ft_print_hex(num, format);
-    ft_printf("\n");
-
-    return 0;
 }

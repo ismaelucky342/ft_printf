@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
+/*   ft_unsigned.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ismherna <ismherna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:46 by ismherna          #+#    #+#             */
-/*   Updated: 2024/03/06 10:28:01 by ismherna         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:56:46 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-int	ft_print_char(int character)
+#include "../includes/ft_printf.h"
+
+int	ft_print_unsigned(unsigned int n)
 {
-	if (write (1, &character, 1) == -1)
+	int	size;
+
+	size = 0;
+	if (n == 0)
+		size += ft_print_char('0');
+	else
 	{
-		return (-1);
+		if (n / 10 != 0)
+			ft_print_unsigned(n / 10);
+		ft_print_char((n % 10) + '0');
+		while (n > 0)
+		{
+			n /= 10;
+			size++;
+		}
 	}
-	return (1);
+	return (size);
 }

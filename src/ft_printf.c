@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismherna <ismherna@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ismherna <ismherna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:46 by ismherna          #+#    #+#             */
-/*   Updated: 2024/03/01 00:30:59 by ismherna         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:55:48 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+
+#include "../includes/ft_printf.h"
 
 static int	ft_format(va_list argument, const char word);
 
@@ -58,7 +59,7 @@ static int	ft_format(va_list argument, const char word)
 		size += ft_print_char(word);
 	return (size);
 }
-/*#include "ft_printf.h"
+/*#include "../includes/ft_printf.h"
 
 
 int main() {
